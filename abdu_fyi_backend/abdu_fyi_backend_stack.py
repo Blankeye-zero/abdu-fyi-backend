@@ -85,9 +85,9 @@ class AbduFyiBackendStack(Stack):
         #     domain="abdu.fyi", nameservers=nameservers)
 
         certificate = cm.Certificate(self, "abdu-fyi-cert-ssl",
-                                     domain_name="abdu.fyi",
+                                     domain_name=user_domain_name,
                                      subject_alternative_names=[
-                                         "www.abdu.fyi"],
+                                         f"www.{user_domain_name}"],
                                      validation=cm.CertificateValidation.from_dns(
                                          hostedzone)
                                      )
